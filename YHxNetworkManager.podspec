@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'YHxNetworkManager'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of YHxNetworkManager.'
+  s.summary          = 'Simple lighweight network wrapper around NSURLSession'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,11 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'This is a lightweight network wrapper that matches some listed requirements'
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/YHxNetworkManager'
+  s.homepage         = 'https://github.com/yousefhamza/YHxNetworkManager'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yousef Hamza' => 'jo.adam.93@gmail.com' }
