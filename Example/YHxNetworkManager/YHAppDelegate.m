@@ -7,12 +7,17 @@
 //
 
 #import "YHAppDelegate.h"
+#import "YHViewController.h"
 
 @implementation YHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window.rootViewController = [[YHViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    NSLog(@"app delegate");
+
     return YES;
 }
 

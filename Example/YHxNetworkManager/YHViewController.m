@@ -7,8 +7,14 @@
 //
 
 #import "YHViewController.h"
+#import "YHViewPresenter.h"
+#import "YHxNetworkManager.h"
+#import "YHMoviesTableViewCell.h"
+#import "Masonry.h"
 
 @interface YHViewController ()
+
+@property (atomic, strong) UITableView *tableView;
 
 @end
 
@@ -17,13 +23,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) style:UITableViewStylePlain];
+    self.viewPresenter = [[YHViewPresenter alloc] init];
+    self.viewPresenter.view = self;
+
+    self.tableView.dataSource = self.viewPresenter;
+    self.tableView.delegate = self.viewPresenter;
+    [self.tableView registerClass:[YHMoviesTableViewCell class] forCellReuseIdentifier:@"cell"];
+
+    [self.view addSubview:self.tableView];
+    
+    [self.viewPresenter loadMovies];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)updateViewConstraints {
+    __weak YHViewController *weakSelf = self;
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view.mas_top);
+        make.left.equalTo(weakSelf.view.mas_left);
+        make.height.equalTo(weakSelf.view.mas_height);
+        make.width.equalTo(weakSelf.view.mas_width);
+    }];
+    [super updateViewConstraints];
 }
+
+#pragma mark - Presenter calls
+
+- (void)refresh {
+    [self.tableView reloadData];
+}
+
 
 @end

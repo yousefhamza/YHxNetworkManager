@@ -23,6 +23,8 @@
 @property (nonatomic, strong) id<YHxResponseSerializerProtocol> responseSerializer;
 
 
+- (id)initWithBaseURL:(NSURL *)baseURL;
+
 /*
  Required interface
  */
@@ -33,26 +35,26 @@
 /*
  AFNetworking like interface for making request
  */
-- (void)GET:(NSString *)URL parameters:(id)parameters
+- (void)GET:(NSString *)url parameters:(id)parameters
     sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
     failure:(void(^)(NSError *error))failure;
 
-- (void)POST:(NSString *)URL parameters:(id)parameters
+- (void)POST:(NSString *)url parameters:(id)parameters
      sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
      failure:(void(^)(NSError *error))failure;
 
-- (void)PUT:(NSString *)URL parameters:(id)parameters
+- (void)PUT:(NSString *)url parameters:(id)parameters
     sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
     failure:(void(^)(NSError *error))failure;
 
-- (void)DELETE:(NSString *)URL parameters:(id)parameters
+- (void)DELETE:(NSString *)url parameters:(id)parameters
        sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
        failure:(void(^)(NSError *error))failure;
 
 /*
  Seperate API for loading images
  */
-- (void)getImage:(NSString *)URL parameters:(id)parameters sucesss:(void(^)(UIImage * image))sucess failure:(void(^)(NSError *error))failure;
+- (void)getImage:(NSString *)url parameters:(id)parameters sucesss:(void(^)(UIImage * image))sucess failure:(void(^)(NSError *error))failure;
 
 
 /*

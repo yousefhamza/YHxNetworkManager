@@ -70,11 +70,16 @@
     [[self sessionDataTaskForHTTPVerb:@"DELETE" URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
 
-- (void)getImage:(NSString *)URL parameters:(id)parameters
+- (void)getImage:(NSString *)url parameters:(id)parameters
          sucesss:(void(^)(UIImage * image))sucess
          failure:(void(^)(NSError *error))failure {
     
-    NSURL *requestURL = [NSURL URLWithString:URL relativeToURL:self.baseURL];
+    NSURL *requestURL = nil;
+    if (self.baseURL) {
+        requestURL = [self.baseURL URLByAppendingPathComponent:url];
+    } else {
+        requestURL =[NSURL URLWithString:url];
+    }
 
     [[self.sessionManager.session downloadTaskWithURL:requestURL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
@@ -87,14 +92,14 @@
 
 #pragma mark - Refactoring method
 
-- (NSURLSessionDataTask *)sessionDataTaskForHTTPVerb:(NSString *)verb URL:(NSString *)URL parameters:(id)parameters
+- (NSURLSessionDataTask *)sessionDataTaskForHTTPVerb:(NSString *)verb URL:(NSString *)url parameters:(id)parameters
                                              sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
                                              failure:(void(^)(NSError *error))failure {
     NSURL *requestURL = nil;
     if (self.baseURL) {
-        requestURL = [self.baseURL URLByAppendingPathComponent:URL];
+        requestURL = [self.baseURL URLByAppendingPathComponent:url];
     } else {
-        requestURL =[NSURL URLWithString:URL];
+        requestURL =[NSURL URLWithString:url];
     }
 
     NSURLRequest *request = [self.requestSerializer

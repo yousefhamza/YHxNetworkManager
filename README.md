@@ -16,13 +16,13 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Usage
 
-Your key player is YHxNetworkManager it's ready to use right a way with no configuration
+Your key player is YHxNetworkManager it's ready to use right a way with no configuration:
 
 ```objective-c
 YHxNetworkManager *networkManager = [YHxNetworkManager alloc] init];
 ```
 
-All the way to fully configured YHxNetworkManager which still minimal
+All the way to fully configured YHxNetworkManager which still minimal:
 
 ```objective-c
 YHxNetworkManager *networkManager = [YHxNetworkManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://example.com"];
@@ -30,7 +30,7 @@ networkManager.requestSerializer = [YHxJSONRequestSerializer alloc] init];
 networkManager.responseSerializer = [YHxJSONResponseSerialzer alloc] init];
 ```
 
-To issue an HTTP request you can by providing the HTTP verb, URL and the parameters
+To issue an HTTP request you can by providing the HTTP verb, URL and the parameters:
 
 ```objective-c
 [networkManager makeRequestWithHTTPVerb:@"GET" URL:@"/d1/d2" parameters:nil 
@@ -41,7 +41,7 @@ sucesss:^(id responseObject, NSURLResponse *response) {
 }];
 ```
 
-Or you can more convenient method
+Or you can use more convenient method:
 
 ```objective-c
 [networkManager GET:@"/d1/d2" parameters:nil

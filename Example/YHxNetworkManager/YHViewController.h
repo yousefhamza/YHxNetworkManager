@@ -6,8 +6,13 @@
 //  Copyright (c) 2016 Yousef Hamza. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
+#import "YHViewPresenter.h"
 
 @interface YHViewController : UIViewController
+
+@property (nonatomic, strong) YHViewPresenter *viewPresenter;
+
+- (void)refresh;
 
 @end
