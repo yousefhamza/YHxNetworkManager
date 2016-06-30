@@ -2,10 +2,13 @@ use_frameworks!
 
 target 'YHxNetworkManager_Example' do
   pod 'YHxNetworkManager', :path => '../'
+  pod 'OHHTTPStubs'
 
   target 'YHxNetworkManager_Tests' do
     inherit! :search_paths
 
     pod 'Kiwi'
+    pod 'OHHTTPStubs'
+  	pod 'YHxNetworkManager', :path => '../'
   end
 end
