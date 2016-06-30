@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "YHxRequestSeralizerProtcol.h"
 
-@interface YHxJSONSerializer : NSObject <YHxRequestSeralizerProtcol>
+@interface YHxJSONRequestSerializer : NSObject <YHxRequestSeralizerProtcol>
 
 @end

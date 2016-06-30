@@ -8,7 +8,7 @@
 
 #import "YHxJSONRequestSerializer.h"
 
-@implementation YHxJSONSerializer
+@implementation YHxJSONRequestSerializer
 
 - (NSURLRequest *)URLRequestForURL:(NSURL *)url HTTPVerb:(NSString *)verb parameters:(id)parameters {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
