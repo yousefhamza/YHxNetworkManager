@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24AA66861D252DED00B9AFA2 /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA66841D252DED00B9AFA2 /* Kiwi.framework */; };
+		24AA66871D252DED00B9AFA2 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA66851D252DED00B9AFA2 /* OHHTTPStubs.framework */; };
+		24AA66891D25358700B9AFA2 /* YHSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA66881D25358700B9AFA2 /* YHSessionManagerTests.m */; };
+		24AA668B1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA668A1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m */; };
 		587E01872ABADD339DF83B62 /* Pods_YHxNetworkManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3118B54960221A9A81E90DC /* Pods_YHxNetworkManager_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -37,6 +41,10 @@
 
 /* Begin PBXFileReference section */
 		205475405F9CCDB91C7FE3E3 /* Pods-YHxNetworkManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHxNetworkManager_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YHxNetworkManager_Example/Pods-YHxNetworkManager_Example.release.xcconfig"; sourceTree = "<group>"; };
+		24AA66841D252DED00B9AFA2 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiwi.framework; path = "Pods/../build/Debug-iphoneos/Kiwi/Kiwi.framework"; sourceTree = "<group>"; };
+		24AA66851D252DED00B9AFA2 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = "Pods/../build/Debug-iphoneos/OHHTTPStubs/OHHTTPStubs.framework"; sourceTree = "<group>"; };
+		24AA66881D25358700B9AFA2 /* YHSessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHSessionManagerTests.m; sourceTree = "<group>"; };
+		24AA668A1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHJSONRequestSerializerTests.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YHxNetworkManager_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHxNetworkManager_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AA66861D252DED00B9AFA2 /* Kiwi.framework in Frameworks */,
+				24AA66871D252DED00B9AFA2 /* OHHTTPStubs.framework in Frameworks */,
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -117,6 +127,8 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24AA66841D252DED00B9AFA2 /* Kiwi.framework */,
+				24AA66851D252DED00B9AFA2 /* OHHTTPStubs.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -157,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				6003F5BB195388D20070C39A /* Tests.m */,
+				24AA66881D25358700B9AFA2 /* YHSessionManagerTests.m */,
+				24AA668A1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -400,7 +414,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AA668B1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				24AA66891D25358700B9AFA2 /* YHSessionManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +564,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Kiwi",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/OHHTTPStubs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
@@ -572,6 +590,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Kiwi",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/OHHTTPStubs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
