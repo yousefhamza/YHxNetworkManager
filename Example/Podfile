@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'YHxNetworkManager_Example' do
+  pod 'YHxNetworkManager', :path => '../'
+
+  target 'YHxNetworkManager_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  end
+end
