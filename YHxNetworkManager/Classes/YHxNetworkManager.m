@@ -12,25 +12,17 @@
 
 @interface YHxNetworkManager ()
 
+/*
+ Session manager basically handle NSURLSession changes due
+ to configuration changes
+ */
 @property (atomic, strong) YHxSessionManager *sessionManager;
 
 @end
 
 @implementation YHxNetworkManager
 
-/*
- Singleton method
- */
-+ (YHxNetworkManager *)sharedManager {
-    static YHxNetworkManager *sharedManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] initManager];
-    });
-    return sharedManager;
-}
-
-- (id)initManager {
+- (id)init {
     self = [super init];
     if (self) {
         self.sessionManager = [[YHxSessionManager alloc] init];
@@ -38,15 +30,19 @@
     return self;
 }
 
-//- (id)init {
-//    // TODO: Throw exception
-//}
+- (id)initWithBaseURL:(NSURL *)baseURL {
+    self = [self init];
+    if (self) {
+        self.baseURL = baseURL;
+    }
+    return self;
+}
 
 - (void)makeRequestWithHTTPVerb:(NSString *)verb URL:(NSString *)url parameters:(id)parameters
                         sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
                         failure:(void(^)(NSError *error))failure {
 
-    [[self sessionDataTaskForHTTPVerb:verb URL:url parameters:parameters sucesss:sucess failure:failure] resume];
+    [[self sessionDataTaskForHTTPVerb:[verb uppercaseString] URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
 
 - (void)GET:(NSString *)url parameters:(id)parameters
@@ -94,8 +90,12 @@
 - (NSURLSessionDataTask *)sessionDataTaskForHTTPVerb:(NSString *)verb URL:(NSString *)URL parameters:(id)parameters
                                              sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
                                              failure:(void(^)(NSError *error))failure {
-
-    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseURL, URL]];
+    NSURL *requestURL = nil;
+    if (self.baseURL) {
+        requestURL = [self.baseURL URLByAppendingPathComponent:URL];
+    } else {
+        requestURL =[NSURL URLWithString:URL];
+    }
 
     NSURLRequest *request = [self.requestSerializer
                              URLRequestForURL:requestURL
@@ -141,7 +141,7 @@
 
 - (id<YHxRequestSeralizerProtcol>)requestSerializer {
     if (_requestSerializer == nil) {
-        _requestSerializer = [[YHxJSONSerializer alloc] init];
+        _requestSerializer = [[YHxJSONRequestSerializer alloc] init];
         [self.sessionManager addHeader:@"Content-Type" headerValue:@"Application/json"];
     }
     return _requestSerializer;

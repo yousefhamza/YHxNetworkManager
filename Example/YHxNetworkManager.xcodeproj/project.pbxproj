@@ -25,7 +25,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6003F5BC195388D20070C39A /* YHNetworkManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* YHNetworkManagerTests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		E0F2B31020BAD4F2A35C0146 /* Pods_YHxNetworkManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE95F47F28BF8DCED4E0464 /* Pods_YHxNetworkManager_Example.framework */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		6003F5BB195388D20070C39A /* YHNetworkManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHNetworkManagerTests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6D0B350C221AE63F198E64AC /* Pods-YHxNetworkManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHxNetworkManager_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YHxNetworkManager_Tests/Pods-YHxNetworkManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6E3E4FB2DDFDB6EAF0554E16 /* YHxNetworkManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YHxNetworkManager.podspec; path = ../YHxNetworkManager.podspec; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				6003F5BB195388D20070C39A /* YHNetworkManagerTests.m */,
 				24AA66881D25358700B9AFA2 /* YHSessionManagerTests.m */,
 				24AA668A1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m */,
 				24AA66921D25432F00B9AFA2 /* YHJSONResponseSeriaizerTests.m */,
@@ -419,7 +419,7 @@
 			files = (
 				24AA66931D25432F00B9AFA2 /* YHJSONResponseSeriaizerTests.m in Sources */,
 				24AA668B1D253A3400B9AFA2 /* YHJSONRequestSerializerTests.m in Sources */,
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				6003F5BC195388D20070C39A /* YHNetworkManagerTests.m in Sources */,
 				24AA66891D25358700B9AFA2 /* YHSessionManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

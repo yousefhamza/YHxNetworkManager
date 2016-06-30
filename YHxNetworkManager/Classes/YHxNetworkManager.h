@@ -13,13 +13,14 @@
 @interface YHxNetworkManager : NSObject
 
 @property (atomic, strong) NSURL *baseURL;
-@property (nonatomic, strong) id<YHxRequestSeralizerProtcol> requestSerializer;
-@property (nonatomic, strong) id<YHxResponseSerializerProtocol> responseSerializer;
 
 /*
- Singleton method
+ Request and resposne serializers are totally independent of implementation for future
+ development
+ request serialzier if not set, the default value is YHxJSONRequestSerializer
  */
-+ (YHxNetworkManager *)sharedManager;
+@property (nonatomic, strong) id<YHxRequestSeralizerProtcol> requestSerializer;
+@property (nonatomic, strong) id<YHxResponseSerializerProtocol> responseSerializer;
 
 
 /*
