@@ -6,8 +6,6 @@
 //  Copyright © 2016 Yousef Hamza. All rights reserved.
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
-#import <OHHTTPStubs/OHPathHelpers.h>
 #import <Kiwi/Kiwi.h>
 #import "YHxJSONResponseSerialzer.h"
 

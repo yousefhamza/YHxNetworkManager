@@ -6,8 +6,6 @@
 //  Copyright © 2016 Yousef Hamza. All rights reserved.
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
-#import <OHHTTPStubs/OHPathHelpers.h>
 #import <Kiwi/Kiwi.h>
 #import "YHxNetworkMAnager.h"
 #import "YHxSessionMAnager.h"
@@ -16,8 +14,8 @@
 SPEC_BEGIN(SessionManagerTests)
 
 describe(@"Sesion Manager", ^{
+    __block YHxSessionManager *sessionManager = nil;
     context(@"Can change headers", ^{
-        __block YHxSessionManager *sessionManager = nil;
         beforeEach(^{
             sessionManager = [[YHxSessionManager alloc] init];
         });

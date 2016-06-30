@@ -6,8 +6,6 @@
 //  Copyright © 2016 Yousef Hamza. All rights reserved.
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
-#import <OHHTTPStubs/OHPathHelpers.h>
 #import <Kiwi/Kiwi.h>
 #import "YHxJSONRequestSerializer.h"
 
@@ -16,9 +14,9 @@ SPEC_BEGIN(JSONRequestSerializerTests)
 
 describe(@"JSON request serializer", ^{
     context(@"Can serialze", ^{
-        __block YHxJSONSerializer *requestSerialzer = nil;
+        __block YHxJSONRequestSerializer *requestSerialzer = nil;
         beforeEach(^{
-            requestSerialzer = [[YHxJSONSerializer alloc] init];
+            requestSerialzer = [[YHxJSONRequestSerializer alloc] init];
         });
         
         it(@"Dictionaries", ^{
