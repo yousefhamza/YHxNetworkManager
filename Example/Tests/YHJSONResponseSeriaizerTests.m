@@ -1,5 +1,5 @@
 //
-//  YHSessionManagerTests.m
+//  YHJSONResponseSeriaizerTests.m
 //  YHxNetworkManager
 //
 //  Created by Yousef Hamza on 6/30/16.
