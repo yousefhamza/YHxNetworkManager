@@ -47,7 +47,7 @@
 /*
  Conveninet methods
  */
-- (void)setAuthentication:(NSString *)username password:(NSString *)password {
+- (void)setAuthorization:(NSString *)username password:(NSString *)password {
     
     /*
      Basic Authenticion is by setting "Authorization" header to "Base base64(username:password)"

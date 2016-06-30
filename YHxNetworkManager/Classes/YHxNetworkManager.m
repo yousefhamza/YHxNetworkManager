@@ -138,8 +138,8 @@
     return [self.sessionManager headerForKey:headerKey];
 }
 
-- (void)setAuthentication:(NSString *)username password:(NSString *)password {
-    [self.sessionManager setAuthentication:username password:password];
+- (void)setAuthorization:(NSString *)username password:(NSString *)password {
+    [self.sessionManager setAuthorization:username password:password];
 }
 
 #pragma mark - Custom Getter

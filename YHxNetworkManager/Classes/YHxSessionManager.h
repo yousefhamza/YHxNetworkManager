@@ -15,7 +15,7 @@
 /*
  Conveninet methods
  */
-- (void)setAuthentication:(NSString *)username password:(NSString *)password;
+- (void)setAuthorization:(NSString *)username password:(NSString *)password;
 
 /*
  Custom configuration methods

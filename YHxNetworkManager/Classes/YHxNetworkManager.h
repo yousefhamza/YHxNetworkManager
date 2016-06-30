@@ -64,5 +64,5 @@
 - (void)addHeader:(NSString *)header headerValue:(NSString *)headerValue;
 - (void)setHeaders:(NSDictionary *)dict;
 - (NSString *)headerForKey:(NSString *)headerKey;
-- (void)setAuthentication:(NSString *)username password:(NSString *)password;
+- (void)setAuthorization:(NSString *)username password:(NSString *)password;
 @end

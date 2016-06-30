@@ -7,8 +7,13 @@
 
 ## Introduction
 
-This library is lightweight wrapper around NSURLSession that covers most of your use cases and
-extensible to support other use cases as well
+This library is lightweight wrapper around NSURLSession that will covers most of your use cases and
+extensible to support other use cases as well.
+
+It is thread-safe because it uses NSURLSession APIs which is fully thread-safe, also opening 
+and closing the app -not terminating it- has no effect on the on-going requests.
+
+Also it sets limits on simultaneous requests 6 for WiFi, 2 for Cellular. -Not tested on device yet-.
 
 ## Example
 
@@ -63,6 +68,14 @@ sucesss:^(UIImage *image) {
 } failure:^(NSError *error) {
     NSLog(@"Error: %@", error);
 }];
+```
+
+And you also still can access headers of session from these APIs:
+
+```objective-c
+- (void)setHeaders:(NSDictionary *)dict;
+- (void)addHeader:(NSString *)header headerValue:(NSString *)headerValue;
+- (NSString *)headerForKey:(NSString *)headerKey;
 ```
 
 ## Installation
