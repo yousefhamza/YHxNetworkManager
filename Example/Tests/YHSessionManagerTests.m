@@ -33,12 +33,6 @@ describe(@"Sesion Manager", ^{
             [[[sessionManager.session.configuration.HTTPAdditionalHeaders objectForKey:@"testHeader2"] should] equal:@"testValue2"];
         });
         
-        it(@"Can set authorization", ^{
-            [sessionManager setAuthentication:@"username" password:@"password"];
-            
-            [[[sessionManager.session.configuration.HTTPAdditionalHeaders objectForKey:@"Authorization"] shouldNot] beNil];
-        });
-        
         it(@"Can get existing headers", ^{
             [sessionManager setHeaders:@{@"testHeader": @"testValue"}];
 
