@@ -52,7 +52,7 @@ sucesss:^(id responseObject, NSURLResponse *response) {
 }];
 ```
 
-there's also POST, PUT, DELETE
+there's also POST, PUT, DELETE.
 
 Also it provides a simple API for loading images asynchronously
 
