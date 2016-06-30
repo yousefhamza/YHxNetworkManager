@@ -42,28 +42,41 @@
 //    // TODO: Throw exception
 //}
 
-- (void)makeRequestWithHTTPVerb:(NSString *)verb URL:(NSString *)url parameters:(id)parameters sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess failure:(void(^)(NSError *error))failure {
+- (void)makeRequestWithHTTPVerb:(NSString *)verb URL:(NSString *)url parameters:(id)parameters
+                        sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
+                        failure:(void(^)(NSError *error))failure {
+
     [[self sessionDataTaskForHTTPVerb:verb URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
 
-- (void)GET:(NSString *)url parameters:(id)parameters sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess failure:(void(^)(NSError *error))failure {
+- (void)GET:(NSString *)url parameters:(id)parameters
+    sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
+    failure:(void(^)(NSError *error))failure {
 
     [[self sessionDataTaskForHTTPVerb:@"GET" URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
-- (void)POST:(NSString *)url parameters:(id)parameters sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess failure:(void(^)(NSError *error))failure {
+- (void)POST:(NSString *)url parameters:(id)parameters
+     sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
+     failure:(void(^)(NSError *error))failure {
 
     [[self sessionDataTaskForHTTPVerb:@"POST" URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
-- (void)PUT:(NSString *)url parameters:(id)parameters sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess failure:(void(^)(NSError *error))failure {
+- (void)PUT:(NSString *)url parameters:(id)parameters
+    sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
+    failure:(void(^)(NSError *error))failure {
 
     [[self sessionDataTaskForHTTPVerb:@"PUT" URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
-- (void)DELETE:(NSString *)url parameters:(id)parameters sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess failure:(void(^)(NSError *error))failure {
+- (void)DELETE:(NSString *)url parameters:(id)parameters
+       sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
+       failure:(void(^)(NSError *error))failure {
 
     [[self sessionDataTaskForHTTPVerb:@"DELETE" URL:url parameters:parameters sucesss:sucess failure:failure] resume];
 }
 
-- (void)getImage:(NSString *)URL parameters:(id)parameters sucesss:(void(^)(UIImage * image))sucess failure:(void(^)(NSError *error))failure {
+- (void)getImage:(NSString *)URL parameters:(id)parameters
+         sucesss:(void(^)(UIImage * image))sucess
+         failure:(void(^)(NSError *error))failure {
     
     NSURL *requestURL = [NSURL URLWithString:URL relativeToURL:self.baseURL];
 
@@ -78,7 +91,9 @@
 
 #pragma mark - Refactoring method
 
-- (NSURLSessionDataTask *)sessionDataTaskForHTTPVerb:(NSString *)verb URL:(NSString *)URL parameters:(id)parameters sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess failure:(void(^)(NSError *error))failure {
+- (NSURLSessionDataTask *)sessionDataTaskForHTTPVerb:(NSString *)verb URL:(NSString *)URL parameters:(id)parameters
+                                             sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
+                                             failure:(void(^)(NSError *error))failure {
 
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseURL, URL]];
 
@@ -86,11 +101,17 @@
                              URLRequestForURL:requestURL
                              HTTPVerb:verb
                              parameters:parameters];
+    __weak YHxNetworkManager *weakSelf = self;
     return [self.sessionManager.session
             dataTaskWithRequest:request
             completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                 if (!error) {
-                    sucess(data, response);
+                    if (weakSelf.responseSerializer) {
+                        NSDictionary  *responseObject = [weakSelf.responseSerializer objectFromResponseData:data];
+                        sucess(responseObject, response);
+                    } else {
+                        sucess(data, response);
+                    }
                 } else {
                     failure(error);
                 }

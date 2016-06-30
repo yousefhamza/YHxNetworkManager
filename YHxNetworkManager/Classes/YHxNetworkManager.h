@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "YHxRequestSeralizerProtcol.h"
+#import "YHxResponseSerializerProtocol.h"
 
 @interface YHxNetworkManager : NSObject
 
 @property (atomic, strong) NSURL *baseURL;
 @property (nonatomic, strong) id<YHxRequestSeralizerProtcol> requestSerializer;
+@property (nonatomic, strong) id<YHxResponseSerializerProtocol> responseSerializer;
 
 /*
  Singleton method
@@ -24,26 +26,26 @@
  Required interface
  */
 - (void)makeRequestWithHTTPVerb:(NSString *)verb URL:(NSString *)url parameters:(id)parameters
-                        sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess
+                        sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
                         failure:(void(^)(NSError *error))failure;
 
 /*
  AFNetworking like interface for making request
  */
 - (void)GET:(NSString *)URL parameters:(id)parameters
-    sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess
+    sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
     failure:(void(^)(NSError *error))failure;
 
 - (void)POST:(NSString *)URL parameters:(id)parameters
-     sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess
+     sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
      failure:(void(^)(NSError *error))failure;
 
 - (void)PUT:(NSString *)URL parameters:(id)parameters
-    sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess
+    sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
     failure:(void(^)(NSError *error))failure;
 
 - (void)DELETE:(NSString *)URL parameters:(id)parameters
-       sucesss:(void(^)(NSData *data, NSURLResponse *response))sucess
+       sucesss:(void(^)(id responseObject, NSURLResponse *response))sucess
        failure:(void(^)(NSError *error))failure;
 
 /*
