@@ -71,7 +71,7 @@
     NSURLSessionConfiguration *config = self.config;
     NSMutableDictionary *headers =  [NSMutableDictionary dictionaryWithDictionary:self.config.HTTPAdditionalHeaders];
 
-    [headers setObject:header forKey:headerValue];
+    [headers setObject:headerValue forKey:header];
     
     config.HTTPAdditionalHeaders = headers;
     self.config = config;
