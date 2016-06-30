@@ -13,11 +13,6 @@
 @property (readonly, atomic, strong) NSURLSession *session;
 
 /*
- Conveninet methods
- */
-- (void)setAuthorization:(NSString *)username password:(NSString *)password;
-
-/*
  Custom configuration methods
  */
 - (void)setHeaders:(NSDictionary *)dict;

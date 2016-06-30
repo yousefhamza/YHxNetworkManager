@@ -138,10 +138,6 @@
     return [self.sessionManager headerForKey:headerKey];
 }
 
-- (void)setAuthorization:(NSString *)username password:(NSString *)password {
-    [self.sessionManager setAuthorization:username password:password];
-}
-
 #pragma mark - Custom Getter
 
 - (id<YHxRequestSeralizerProtcol>)requestSerializer {

@@ -45,20 +45,6 @@
 }
 
 /*
- Conveninet methods
- */
-- (void)setAuthorization:(NSString *)username password:(NSString *)password {
-    
-    /*
-     Basic Authenticion is by setting "Authorization" header to "Base base64(username:password)"
-     */
-    NSString *authString = [[[NSString stringWithFormat:@"%@:%@", username, password]
-                             dataUsingEncoding:NSUTF8StringEncoding]
-                            base64EncodedStringWithOptions:0];
-    [self addHeader:@"Authorization" headerValue:[NSString stringWithFormat:@"Base %@", authString]];
-}
-
-/*
  Custom configuration methods
  */
 - (void)setHeaders:(NSDictionary *)dict {
